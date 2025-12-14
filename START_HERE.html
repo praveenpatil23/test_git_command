@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start Guide - New Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .guide-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            color: #0000a0;
+            border-bottom: 3px solid #0000a0;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .feature-box {
+            background: #f8f9fa;
+            border-left: 5px solid #0000a0;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .feature-box h5 {
+            color: #0000a0;
+            margin-bottom: 10px;
+        }
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .btn-launch {
+            background: #0000a0;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+        .btn-launch:hover {
+            background: #000080;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,160,0.3);
+        }
+        .status-badge {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="guide-container">
+            <!-- Header -->
+            <div class="text-center mb-4">
+                <h1 style="color: #0000a0; font-weight: 700;">
+                    <i class="fas fa-globe"></i> Bhagwan Shailja Narayan Website
+                </h1>
+                <p class="text-muted">Quick Start Guide & Overview</p>
+                <span class="status-badge"><i class="fas fa-check-circle"></i> Website Ready</span>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Quick Start Section -->
+            <div class="section-title">
+                <i class="fas fa-rocket"></i> Quick Start
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="feature-box">
+                        <h5><i class="fas fa-mouse"></i> To View the Website</h5>
+                        <ol>
+                            <li>Open the <code>index_2.html</code> file in your web browser</li>
+                            <li>Or use the link below</li>
+                            <li>Navigate using the menu at the top</li>
+                            <li>Test on mobile by resizing your browser</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-box">
+                        <h5><i class="fas fa-folder-structure"></i> Folder Structure</h5>
+                        <div class="code-block">new_site/<br>├── index_2.html<br>├── pages/<br>│   ├── vilay.html<br>│   ├── opinion.html<br>│   ├── news.html<br>│   └── contact.html<br>├── css/<br>│   └── style.css<br>└── js/<br>    └── script.js</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mb-4">
+                <a href="index_2.html" class="btn-launch btn-lg">
+                    <i class="fas fa-play-circle"></i> Launch Website
+                </a>
+                <a href="pages/vilay.html" class="btn-launch btn-lg" style="background: #008000;">
+                    <i class="fas fa-book"></i> View Vilay Page
+                </a>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Website Features -->
+            <div class="section-title">
+                <i class="fas fa-star"></i> Website Features
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="feature-box">
+                        <h5><i class="fas fa-mobile-alt"></i> Fully Responsive Design</h5>
+                        <p>
+                            Works perfectly on:
+                            <ul class="mt-2 mb-0">
+                                <li>📱 Mobile phones</li>
+                                <li>📱 Tablets</li>
+                                <li>💻 Desktop computers</li>
+                                <li>🖥️ Large screens</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="feature-box">
+                        <h5><i class="fas fa-images"></i> Image Carousel Slider</h5>
+                        <p>
+                            Features:
+                            <ul class="mt-2 mb-0">
+                                <li>Auto-play (5 second interval)</li>
+                                <li>Navigation buttons</li>
+                                <li>Indicator dots</li>
+                                <li>Keyboard controls</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="feature-box">
+                        <h5><i class="fas fa-bars"></i> Smart Navigation Menu</h5>
+                        <p>
+                            Features:
+                            <ul class="mt-2 mb-0">
+                                <li>Left: Title "Bhagwan Shailja Narayan"</li>
+                                <li>Right: Navigation menu</li>
+                                <li>Mobile hamburger menu</li>
+                                <li>Sticky header while scrolling</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="feature-box">
+                        <h5><i class="fas fa-envelope"></i> Contact Form</h5>
+                        <p>
+                            Features:
+                            <ul class="mt-2 mb-0">
+                                <li>Form validation</li>
+                                <li>Email validation</li>
+                                <li>Success/error messages</li>
+                                <li>Newsletter subscription</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Pages Overview -->
+            <div class="section-title">
+                <i class="fas fa-sitemap"></i> Website Pages
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead style="background: #0000a0; color: white;">
+                        <tr>
+                            <th>Page Name</th>
+                            <th>File Name</th>
+                            <th>Description</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Home</strong></td>
+                            <td><code>index_2.html</code></td>
+                            <td>Main landing page with announcements and quick links</td>
+                            <td><a href="index_2.html" class="btn btn-sm btn-primary">View</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>The Aim of Life - Vilay</strong></td>
+                            <td><code>pages/vilay.html</code></td>
+                            <td>Detailed spiritual teachings about Vilay and enlightenment</td>
+                            <td><a href="pages/vilay.html" class="btn btn-sm btn-primary">View</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>People's Opinion</strong></td>
+                            <td><code>pages/opinion.html</code></td>
+                            <td>Testimonials and community feedback</td>
+                            <td><a href="pages/opinion.html" class="btn btn-sm btn-primary">View</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>News & Events</strong></td>
+                            <td><code>pages/news.html</code></td>
+                            <td>Latest news, schedules, and announcements</td>
+                            <td><a href="pages/news.html" class="btn btn-sm btn-primary">View</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contact Us</strong></td>
+                            <td><code>pages/contact.html</code></td>
+                            <td>Contact form and organization information</td>
+                            <td><a href="pages/contact.html" class="btn btn-sm btn-primary">View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Technology Stack -->
+            <div class="section-title">
+                <i class="fas fa-code"></i> Technology Stack
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <h5><i class="fas fa-cube"></i> Bootstrap 5.3.0</h5>
+                        <p>Modern responsive CSS framework for flexible layouts and components.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <h5><i class="fas fa-bars-chart"></i> jQuery 3.6.0</h5>
+                        <p>JavaScript library for DOM manipulation and interactive features.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <h5><i class="fas fa-icons"></i> Font Awesome 6.4.0</h5>
+                        <p>Icon library with 7000+ icons for beautiful visual design.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Customization Guide -->
+            <div class="section-title">
+                <i class="fas fa-paintbrush"></i> Customization Guide
+            </div>
+
+            <div class="feature-box" style="background: #fff3cd; border-left-color: #ff8040;">
+                <h5>🎨 Colors</h5>
+                <p>Edit <code>css/style.css</code> to change colors:</p>
+                <div class="code-block">:root {
+    --primary-color: #0000a0;      /* Dark Blue */
+    --secondary-color: #008000;    /* Green */
+    --accent-color: #ff0000;       /* Red */
+    --warning-color: #ff8040;      /* Orange */
+}</div>
+            </div>
+
+            <div class="feature-box" style="background: #d1ecf1; border-left-color: #0dcaf0;">
+                <h5>📝 Content</h5>
+                <p>Edit any HTML file to update content. Each page has clear sections for:</p>
+                <ul class="mb-0">
+                    <li>Header and navigation</li>
+                    <li>Main content area</li>
+                    <li>Footer</li>
+                </ul>
+            </div>
+
+            <div class="feature-box" style="background: #d4edda; border-left-color: #198754;">
+                <h5>⚙️ Functionality</h5>
+                <p>Edit <code>js/script.js</code> to add or modify JavaScript functionality:</p>
+                <ul class="mb-0">
+                    <li>Form validation</li>
+                    <li>Carousel controls</li>
+                    <li>Smooth scrolling</li>
+                    <li>Interactive effects</li>
+                </ul>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Browser Support -->
+            <div class="section-title">
+                <i class="fas fa-globe"></i> Browser Support
+            </div>
+
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="feature-box">
+                        <h5><i class="fab fa-chrome fa-2x mb-3" style="color: #4285f4;"></i></h5>
+                        <p>Chrome<br><small class="text-muted">Latest</small></p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-box">
+                        <h5><i class="fab fa-firefox fa-2x mb-3" style="color: #ff7139;"></i></h5>
+                        <p>Firefox<br><small class="text-muted">Latest</small></p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-box">
+                        <h5><i class="fab fa-safari fa-2x mb-3" style="color: #0066cc;"></i></h5>
+                        <p>Safari<br><small class="text-muted">Latest</small></p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-box">
+                        <h5><i class="fab fa-edge fa-2x mb-3" style="color: #00a4ef;"></i></h5>
+                        <p>Edge<br><small class="text-muted">Latest</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Important Files -->
+            <div class="section-title">
+                <i class="fas fa-file-alt"></i> Important Files
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td><strong>index_2.html</strong></td>
+                            <td>Main entry point - Open this file to start</td>
+                        </tr>
+                        <tr>
+                            <td><strong>css/style.css</strong></td>
+                            <td>All custom styling and responsive design</td>
+                        </tr>
+                        <tr>
+                            <td><strong>js/script.js</strong></td>
+                            <td>jQuery functionality and interactivity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>README.md</strong></td>
+                            <td>Detailed documentation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Getting Started -->
+            <div class="section-title">
+                <i class="fas fa-play"></i> Getting Started
+            </div>
+
+            <div class="alert alert-info">
+                <h5><i class="fas fa-info-circle"></i> 3 Simple Steps:</h5>
+                <ol>
+                    <li><strong>Open:</strong> Double-click on <code>index_2.html</code> or open with your browser</li>
+                    <li><strong>Explore:</strong> Click through all pages using the navigation menu</li>
+                    <li><strong>Test:</strong> Resize your browser to see responsive design in action</li>
+                </ol>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="index_2.html" class="btn-launch" style="font-size: 1.2rem; padding: 15px 40px;">
+                    <i class="fas fa-rocket"></i> Launch Website Now
+                </a>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Footer -->
+            <div class="text-center text-muted mt-5">
+                <p>
+                    <strong>Bhagwan Shailja Narayan Website</strong><br>
+                    Built with Bootstrap 5, jQuery, and Font Awesome<br>
+                    © 2025 Vilay Gyan Dharmarth Sansthan
+                </p>
+                <p class="small">
+                    <i class="fas fa-mobile-alt"></i> Fully Responsive | 
+                    <i class="fas fa-check-circle"></i> Production Ready | 
+                    <i class="fas fa-rocket"></i> Ready to Deploy
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

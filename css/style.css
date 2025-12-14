@@ -1,0 +1,626 @@
+/* ===================================
+   Custom Styles for Bhagwan Shailja Narayan Website
+   =================================== */
+
+:root {
+    --primary-color: #0000a0;
+    --secondary-color: #008000;
+    --accent-color: #ff0000;
+    --warning-color: #ff8040;
+    --text-dark: #000000;
+    --bg-light: #f5f5f5;
+    --border-color: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    background-color: #ffffff;
+    line-height: 1.6;
+}
+
+/* ===================================
+   Header Styles
+   =================================== */
+
+.header-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 3px solid var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-title {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.header-title h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.2;
+    font-family: 'Arial', sans-serif;
+}
+
+.header-title .subtitle {
+    font-size: 1rem;
+    color: #808000;
+    font-family: 'Bookman Old Style', serif;
+    margin-top: 5px;
+}
+
+/* Navigation Menu */
+.navbar {
+    padding: 0;
+}
+
+.navbar-nav {
+    gap: 0;
+}
+
+.nav-link {
+    padding: 8px 15px !important;
+    color: var(--primary-color) !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+    border-bottom-color: var(--accent-color);
+}
+
+.nav-link.active {
+    color: var(--accent-color) !important;
+    border-bottom-color: var(--accent-color);
+    background-color: rgba(255, 0, 0, 0.05);
+}
+
+/* Responsive Menu Toggle */
+.navbar-toggler {
+    border-color: var(--primary-color);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 0, 160, 0.25);
+}
+
+@media (max-width: 992px) {
+    .header-title {
+        text-align: center;
+        padding-left: 0;
+        margin-bottom: 15px;
+    }
+
+    .header-title h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-title .subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+/* ===================================
+   Slider/Carousel Styles
+   =================================== */
+
+.slider-section {
+    background-color: #f0f0f0;
+    padding: 20px 0;
+    margin: 20px 0;
+}
+
+#imageSlider {
+    border: 3px solid var(--primary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-inner {
+    background-color: #000;
+}
+
+.slider-img {
+    max-height: 600px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 160, 0.7);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.carousel-indicators button {
+    background-color: rgba(0, 0, 160, 0.5);
+    border: 2px solid var(--primary-color);
+}
+
+.carousel-indicators button.active {
+    background-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .slider-img {
+        max-height: 400px;
+    }
+}
+
+/* ===================================
+   Main Content Styles
+   =================================== */
+
+.main-content {
+    padding: 40px 0;
+    min-height: calc(100vh - 200px);
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--primary-color);
+    font-family: 'Arial', sans-serif;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+}
+
+.page-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Content Boxes */
+.content-box {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.content-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.content-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.guidelines {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.guidelines-list {
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+
+.guidelines-list li {
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
+/* ===================================
+   Quick Links/Cards Styles
+   =================================== */
+
+.quick-link-card {
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+    border-left: 5px solid var(--primary-color);
+}
+
+.quick-link-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 160, 0.15);
+    border-left-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.quick-link-card .card-body {
+    padding: 25px;
+}
+
+.quick-link-card i {
+    transition: all 0.3s ease;
+}
+
+.quick-link-card:hover i {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* ===================================
+   Teaching Cards
+   =================================== */
+
+.teaching-card {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.teaching-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.teaching-card h5 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.teaching-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ===================================
+   Testimonials Styles
+   =================================== */
+
+.testimonial-card {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card .card {
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--primary-color);
+}
+
+.testimonial-card .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.testimonial-avatar {
+    min-width: 60px;
+}
+
+.testimonial-stars {
+    font-size: 0.9rem;
+}
+
+/* ===================================
+   News Items Styles
+   =================================== */
+
+.news-item {
+    transition: all 0.3s ease;
+}
+
+.news-item .card {
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.news-item .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.news-item .card-header {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ===================================
+   Contact Form Styles
+   =================================== */
+
+.contact-card {
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+}
+
+.contact-card i {
+    color: var(--primary-color);
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 0.95rem;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 160, 0.25);
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+/* ===================================
+   Buttons Styles
+   =================================== */
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #000080;
+    border-color: #000080;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 160, 0.3);
+}
+
+.btn-success {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-success:hover {
+    background-color: #006000;
+    border-color: #006000;
+}
+
+.btn-warning {
+    background-color: var(--warning-color);
+    border-color: var(--warning-color);
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #ff7030;
+    border-color: #ff7030;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* ===================================
+   Alert Styles
+   =================================== */
+
+.alert {
+    border-radius: 6px;
+    border-left: 5px solid;
+}
+
+.alert-info {
+    border-left-color: #0dcaf0;
+    background-color: #cfe2ff;
+    border-color: #b6d4fe;
+}
+
+.alert-success {
+    border-left-color: #198754;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+
+.alert-warning {
+    border-left-color: #ff8040;
+    background-color: #fff3cd;
+    border-color: #ffecb5;
+}
+
+/* ===================================
+   Footer Styles
+   =================================== */
+
+.footer-section {
+    background-color: #333;
+    color: #fff;
+    margin-top: 60px;
+    border-top: 3px solid var(--primary-color);
+}
+
+.footer-info h6,
+.footer-links h6 {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.footer-info p,
+.footer-links ul li {
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.footer-info a,
+.footer-links a {
+    color: #ffc107;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-info a:hover,
+.footer-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-section hr {
+    border-color: #555;
+    margin: 20px 0;
+}
+
+.footer-section .text-center p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* ===================================
+   Utility Classes
+   =================================== */
+
+.intro-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.cta-section {
+    text-align: center;
+    border: 2px solid var(--primary-color);
+}
+
+.cta-section h3 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.subscribe-section form {
+    max-width: 500px;
+}
+
+/* ===================================
+   Announcements Section
+   =================================== */
+
+.announcements {
+    margin-bottom: 30px;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+@media (max-width: 768px) {
+    .header-title h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-title .subtitle {
+        font-size: 0.85rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .content-box {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .quick-link-card .card-body {
+        padding: 15px;
+    }
+
+    .footer-section {
+        padding: 20px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-title h1 {
+        font-size: 1.3rem;
+    }
+
+    .header-title .subtitle {
+        font-size: 0.75rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .nav-link {
+        padding: 6px 10px !important;
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* ===================================
+   Print Styles
+   =================================== */
+
+@media print {
+    .header-section,
+    .footer-section,
+    .navbar {
+        display: none;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .content-box {
+        page-break-inside: avoid;
+        border: 1px solid #ddd;
+    }
+}
+
+/* ===================================
+   Accessibility Improvements
+   =================================== */
+
+a:focus,
+button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.visually-hidden {
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
