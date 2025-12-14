@@ -1,0 +1,68 @@
+{
+  "description": "Vilay Gyan Dharmarth Sansthan has published many books which showcase the knowledge imparted upon us by Lord Shailja Narayan. These books can be purchased at nominal cost-to-cost basis by contacting us via email.",
+  "books": [
+    {
+      "id": "vilay-sutra",
+      "title": "Vilay Sutra",
+      "image": "./books/Vilay-Sutra_tn.jpg",
+      "fullImage": "./books/Vilay-Sutra.jpeg",
+      "hindi": "विलय सूत्र"
+    },
+    {
+      "id": "vilay-path",
+      "title": "Vilay Path",
+      "image": "./books/Vilay-Path_tn.jpg",
+      "fullImage": "./books/Vilay-Path.jpeg",
+      "hindi": "विलय पाथ"
+    },
+    {
+      "id": "maa-ke-geet",
+      "title": "Maa ke Geet",
+      "image": "./books/Maa-ke-geet_tn.jpg",
+      "fullImage": "./books/Maa-ke-geet.jpeg",
+      "hindi": "माँ के गीत"
+    },
+    {
+      "id": "jeevan-mrityu",
+      "title": "Jeevan Mrityu se Shresth Vilay",
+      "image": "./books/Jeevan-Mrityu-se-shresth-vilay_tn.jpg",
+      "fullImage": "./books/Jeevan-Mrityu-se-shresth-vilay.jpeg",
+      "hindi": "जीवन मृत्यु से श्रेष्ठ विलय"
+    },
+    {
+      "id": "bhakt-bhav",
+      "title": "Bhakt Bhav Sangrah",
+      "image": "./books/Bhakt-Bhav-Sangrah_tn.jpg",
+      "fullImage": "./books/Bhakt-Bhav-Sangrah.jpeg",
+      "hindi": "भक्त भाव संग्रह"
+    },
+    {
+      "id": "bhakt-ki-shreshtha",
+      "title": "Bhagwan se Bhakt ki Shreshtha",
+      "image": "./books/Bhagwaan-se-bhakt-ki-shreshtha_tn.jpg",
+      "fullImage": "./books/Bhagwaan-se-bhakt-ki-shreshtha.jpeg",
+      "hindi": "भगवान से भक्त की श्रेष्ठता"
+    },
+    {
+      "id": "aikakar",
+      "title": "Bhagwan se Aikakar",
+      "image": "./books/Bhagwaan-se-aikakar_tn.jpg",
+      "fullImage": "./books/Bhagwaan-se-aikakar.jpeg",
+      "hindi": "भगवान से एकाकार"
+    },
+    {
+      "id": "avtar-katha",
+      "title": "Avtar Katha",
+      "image": "./books/Avtar-katha_tn.jpg",
+      "fullImage": "./books/Avtar-katha.jpeg",
+      "hindi": "अवतार कथा"
+    },
+    {
+      "id": "aise-hain-mere",
+      "title": "Aise Hain Mere Bhagwan",
+      "image": "./books/aise-hain-mere-bhagwaan_tn.jpg",
+      "fullImage": "./books/aise-hain-mere-bhagwaan.jpeg",
+      "hindi": "ऐसे हैं मेरे भगवान"
+    }
+  ]
+}

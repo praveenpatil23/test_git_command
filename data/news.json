@@ -1,0 +1,85 @@
+{
+  "description": "Stay updated with latest announcements and upcoming programs at Vilay Gyan Dharmarth Sansthan.",
+  "newsletters": [
+    {
+      "id": "schedule-dec-2025",
+      "title": "VILAY GYAN DHARMARTH SANSTHA - PROGRAMS FOR THE MONTH OF ",
+      "month": "December 2025",
+      "date": "December 2025",
+      "icon": "fa-calendar-alt",
+      "color": "primary",
+      "content": "The schedule for December 2025 has been announced. This includes all spiritual programs, events, and sacred gatherings for the month. Please review the details to plan your participation.",
+      "note": "(PRABHU UTSAV: NARAYAN VANDANA AT 10:15AM & 3:00PM)",
+      "events": [
+        {
+          "particulars": "POORN PATH",
+          "date": "04",
+          "time": ""
+        },
+        {
+          "particulars": "Bhagwan Narayan ka Bhavya aivam Vishal Bhandara",
+          "date": "04",
+          "time": "11:00 AM ONWARDS"
+        },
+        {
+          "particulars": "PRABHU UTSAV",
+          "date": "14",
+          "time": "09:00 AM ONWARDS"
+        },
+        {
+          "particulars": "KEERTAN",
+          "date": "20",
+          "time": ""
+        },
+        {
+          "particulars": "PRABHU UTSAV",
+          "date": "21",
+          "time": "09:00 AM ONWARDS"
+        },
+        {
+          "particulars": "PRABHU UTSAV",
+          "date": "28",
+          "time": "09:00 AM ONWARDS"
+        }
+      ]
+    },
+    {
+      "id": "schedule-nov-2025",
+      "title": "VILAY GYAN DHARMARTH SANSTHA - PROGRAMS FOR THE MONTH OF ",
+      "month": "November 2025",
+      "date": "November 2025",
+      "icon": "fa-calendar-alt",
+      "color": "info",
+      "content": "The schedule for November 2025 includes all spiritual programs, events, and sacred gatherings for the month. Please review the details to plan your participation.",
+      "note": "(PRABHU UTSAV: NARAYAN VANDANA AT 10:15AM & 3:00PM)",
+      "events": [
+        {
+          "particulars": "POORN PATH",
+          "date": "06",
+          "time": ""
+        },
+        {
+          "particulars": "PRABHU UTSAV",
+          "date": "13",
+          "time": "09:00 AM ONWARDS"
+        },
+        {
+          "particulars": "KEERTAN",
+          "date": "15",
+          "time": ""
+        },
+        {
+          "particulars": "PRABHU UTSAV",
+          "date": "20",
+          "time": "09:00 AM ONWARDS"
+        },
+        {
+          "particulars": "PRABHU UTSAV",
+          "date": "30",
+          "time": "09:00 AM ONWARDS"
+        }
+      ]
+    }
+   
+  ]
+}

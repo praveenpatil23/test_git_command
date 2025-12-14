@@ -1,34 +1,306 @@
 <!-- Footer Section -->
-<footer class="footer-section py-4">
+<footer class="footer-section">
+    <style>
+        .footer-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            padding: 60px 0 20px 0;
+            margin-top: 80px;
+            border-top: 3px solid #f093fb;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .footer-section h5 {
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section h6 {
+            color: #f093fb;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-info {
+            margin-bottom: 30px;
+        }
+
+        .footer-info p {
+            line-height: 1.8;
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+
+        .footer-info a {
+            color: #f093fb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-info a:hover {
+            color: #f5576c;
+            text-decoration: underline;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .footer-links a:hover {
+            color: #f093fb;
+            padding-left: 8px;
+            transform: translateX(5px);
+        }
+
+        .footer-links a::before {
+            content: "▸";
+            margin-right: 8px;
+            color: #f5576c;
+        }
+
+        .footer-contact {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            gap: 12px;
+        }
+
+        .contact-item i {
+            color: #f093fb;
+            font-size: 1.2rem;
+            margin-top: 2px;
+            min-width: 20px;
+        }
+
+        .contact-item p {
+            margin: 0;
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .contact-item a {
+            color: #f093fb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #f5576c;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(240, 147, 251, 0.15);
+            border: 1px solid #f093fb;
+            border-radius: 50%;
+            color: #f093fb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .social-links a:hover {
+            background-color: #f093fb;
+            color: #1a1a2e;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(240, 147, 251, 0.3);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #f093fb, transparent);
+            margin: 40px 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        .footer-bottom p {
+            color: #808080;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .footer-bottom a {
+            color: #f093fb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: #f5576c;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .footer-logo-text h5 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .footer-logo-text p {
+            margin: 0;
+            color: #b0b0b0;
+            font-size: 0.8rem;
+        }
+
+        .footer-section .col-md-3,
+        .footer-section .col-md-4 {
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-section {
+                padding: 40px 0 15px 0;
+            }
+
+            .footer-section h5 {
+                font-size: 1.1rem;
+            }
+
+            .footer-links a {
+                font-size: 0.9rem;
+            }
+
+            .contact-item {
+                margin-bottom: 12px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <!-- Main Footer Content -->
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="footer-info">
-                    <h6>Vilay Gyan Dharmarth Sansthan</h6>
-                    <p>
-                        Shri Narayan Bhawan, Siddharth Nagar, Bara Bagh,<br>
-                        Hanuman Mandir Road, Bareilly, India<br>
-                        Email: <a href="mailto:vilaygyan@gmail.com">vilaygyan@gmail.com</a>
-                    </p>
+            <!-- Organization Info -->
+            <div class="col-md-4">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <i class="fas fa-om"></i>
+                    </div>
+                    <div class="footer-logo-text">
+                        <h5>VILAY GYAN</h5>
+                        <p>Dharmarth Sansthan</p>
+                    </div>
                 </div>
+                <p style="color: #b0b0b0; font-size: 0.95rem; line-height: 1.8; margin-top: 15px;">
+                    Dedicated to spiritual enlightenment and the teachings of Bhagwan Shailja Narayan. Join us on the path to divine knowledge.
+                </p>
+                <!-- <div class="social-links">
+                    <a href="#" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div> -->
             </div>
-            <div class="col-md-6">
+
+            <!-- Quick Links -->
+            <div class="col-md-3">
+                <h5><i class="fas fa-link" style="margin-right: 8px; color: #f093fb;"></i>Quick Links</h5>
                 <div class="footer-links">
-                    <h6>Quick Links</h6>
-                    <ul class="list-unstyled">
+                    <ul>
                         <li><a href="#" data-page="home">Home</a></li>
-                        <li><a href="#" data-page="vilay">Vilay</a></li>
-                        <li><a href="#" data-page="opinion">Opinion</a></li>
-                        <li><a href="#" data-page="news">News</a></li>
-                        <li><a href="#" data-page="contact">Contact</a></li>
+                        <li><a href="#" data-page="vilay">The Aim Of Life</a></li>
+                        <li><a href="#" data-page="opinion">People's Opinion</a></li>
+                        <li><a href="#" data-page="activities">Activities</a></li>
+                        <li><a href="#" data-page="books">Books</a></li>
+                        <li><a href="#" data-page="news">News & Events</a></li>
+                        <li><a href="#" data-page="contact">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
+
+            <!-- Contact Information -->
+            <div class="col-md-3">
+                <h5><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: #f093fb;"></i>Get in Touch</h5>
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <i class="fas fa-map-pin"></i>
+                        <p>Shri Narayan Bhawan, Siddharth Nagar,<br>Bara Bagh, Hanuman Mandir Road,<br>Bareilly, Uttar Pradesh, India</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p><a href="mailto:vilaygyan@gmail.com">vilaygyan@gmail.com</a></p>
+                    </div>
+                    <!-- <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                    </div> -->
+                </div>
+            </div>
         </div>
-        <hr>
-        <div class="text-center">
-            <p class="mb-0">&copy; 2025 Bhagwan Shailja Narayan. All rights reserved. | Brought to you by Vilay Gyan Dharmarth Sansthan</p>
-            <p class="text-muted small">Best viewed at 1024x768 resolution and above using modern browsers</p>
+
+        <!-- Footer Divider -->
+        <div class="footer-divider"></div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 <strong>Bhagwan Shailja Narayan</strong> | <a href="#" data-page="home">Vilay Gyan Dharmarth Sansthan</a></p>
+            <p>Designed with <i class="fas fa-heart" style="color: #f5576c;"></i> for spiritual enlightenment | All rights reserved.</p>
+            <p style="margin-top: 15px; font-size: 0.85rem;">
+                <a href="#" style="margin-right: 15px;">Privacy Policy</a> | 
+                <a href="#" style="margin: 0 15px;">Terms & Conditions</a> | 
+                <a href="#">Disclaimer</a>
+            </p>
         </div>
     </div>
 </footer>

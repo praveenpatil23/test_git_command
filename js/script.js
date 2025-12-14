@@ -1,8 +1,15 @@
 /**
  * Bhagwan Shailja Narayan Website
  * Custom jQuery Script
- * Features: Smooth scrolling, form validation, slider controls, animations
+ * Features: Smooth scrolling, form validation, slider controls, animations, SPA routing
  */
+
+// ===================================
+// SPA Router Detection
+// ===================================
+
+// Check if we're running in SPA mode (app.html) or traditional mode
+var isSPA = window.location.pathname.includes('app.html');
 
 // ===================================
 // Load Common Header Component
@@ -36,17 +43,31 @@ function loadHeader() {
 }
 
 function setActiveNavLink() {
-    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    var pageMapping = {
-        'index.html': 'home',
-        'index_2.html': 'home',
-        'vilay.html': 'vilay',
-        'opinion.html': 'opinion',
-        'news.html': 'news',
-        'contact.html': 'contact'
-    };
-    
-    var currentPageKey = pageMapping[currentPage] || 'home';
+    if (isSPA) {
+        // For SPA, use hash-based routing
+        var currentHash = window.location.hash.slice(1) || 'home';
+        var pageMapping = {
+            'home': 'home',
+            'vilay': 'vilay',
+            'opinion': 'opinion',
+            'news': 'news',
+            'contact': 'contact'
+        };
+        var currentPageKey = pageMapping[currentHash] || 'home';
+    } else {
+        // For traditional pages, use filename
+        var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        var pageMapping = {
+            'index.html': 'home',
+            'index_2.html': 'home',
+            'app.html': 'home',
+            'vilay.html': 'vilay',
+            'opinion.html': 'opinion',
+            'news.html': 'news',
+            'contact.html': 'contact'
+        };
+        var currentPageKey = pageMapping[currentPage] || 'home';
+    }
     
     $('.navbar-nav .nav-link').each(function() {
         var pageAttr = $(this).data('page');
@@ -56,6 +77,7 @@ function setActiveNavLink() {
             $(this).removeClass('active');
         }
     });
+
     
     // Update nav links to point to correct paths
     updateNavLinks();
@@ -110,20 +132,37 @@ function loadFooter() {
 }
 
 function updateFooterLinks() {
-    var isInPages = window.location.pathname.includes('/pages/');
-    
-    $('#footer-container .footer-links a').each(function() {
-        var pageAttr = $(this).data('page');
-        var href = '';
+    if (isSPA) {
+        // For SPA, use hash-based navigation
+        $('#footer-container .footer-links a').each(function() {
+            var pageAttr = $(this).data('page');
+            if (pageAttr) {
+                $(this).attr('href', '#' + pageAttr);
+                $(this).off('click').on('click', function(e) {
+                    e.preventDefault();
+                    if (typeof navigateTo === 'function') {
+                        navigateTo(pageAttr);
+                    }
+                });
+            }
+        });
+    } else {
+        // For traditional pages, use file paths
+        var isInPages = window.location.pathname.includes('/pages/');
         
-        if (pageAttr === 'home') {
-            href = isInPages ? '../index.html' : 'index.html';
-        } else {
-            href = isInPages ? pageAttr + '.html' : 'pages/' + pageAttr + '.html';
-        }
-        
-        $(this).attr('href', href);
-    });
+        $('#footer-container .footer-links a').each(function() {
+            var pageAttr = $(this).data('page');
+            var href = '';
+            
+            if (pageAttr === 'home') {
+                href = isInPages ? '../index.html' : 'index.html';
+            } else {
+                href = isInPages ? pageAttr + '.html' : 'pages/' + pageAttr + '.html';
+            }
+            
+            $(this).attr('href', href);
+        });
+    }
 }
 
 $(document).ready(function() {
@@ -131,12 +170,34 @@ $(document).ready(function() {
 
     // Load header and footer, then initialize other components
     $.when(loadHeader(), loadFooter()).done(function() {
+        // For SPA, setup navigation handlers
+        if (isSPA) {
+            setupSPANavigation();
+        }
         initializeComponents();
     }).fail(function() {
         console.error('Header/Footer loading failed, but continuing with initialization');
         initializeComponents();
     });
 });
+
+// ===================================
+// SPA Navigation Setup
+// ===================================
+
+function setupSPANavigation() {
+    // Update header nav links for SPA
+    $(document).on('click', '.navbar-nav .nav-link[data-page]', function(e) {
+        e.preventDefault();
+        var page = $(this).data('page');
+        if (typeof navigateTo === 'function') {
+            navigateTo(page);
+        }
+    });
+    
+    // Update footer nav links
+    updateFooterLinks();
+}
 
 function initializeComponents() {
     // ===================================

@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "name": "Mr. Pankaj Kumar Gupta",
+    "title": "Finance Head",
+    "company": "Cypress Solutions Pvt. Ltd.",
+    "location": "New Delhi, INDIA",
+    "email": "pankaj@cypress-india.com",
+    "rating": 5,
+    "comment": "First time I saw Bhagwan Shailja Narayan in a family function, there I got an opportunity to speak to her as I heard a lot about her. That time I realized that she is extraordinary. I never realized that feeling before even in spiritual gathering what I felt with Bhagwan Shailja Narayan. With grace of herself she did a Leela in which she allowed me to see the CHAKRA on her hand. I was stunned to see that, all the family members were also witness to see that unforgettable event. From that time onwards I have my full faith in her.",
+    "avatar_color": "primary"
+  },
+  {
+    "id": 2,
+    "name": "Mrs. Shweta G Aggarwal",
+    "title": "AVP",
+    "company": "Copal Partners",
+    "location": "Gurgaon, INDIA",
+    "email": "shweta_agarwal@copalpartners.com",
+    "rating": 5,
+    "comment": "It's very difficult to believe in today's world that God has taken birth on earth as a human being. I also took some time to accept that fact. But by God's grace and with the help of numerous incidences that happened with me I realized this fact that God is actually there. After Meeting with Bhagwan Shailja Narayan I came to understand the purpose of life (a question in my mind since childhood) I learnt that believing in God does not mean a cut off from social life or career. She has never said to leave anything or not to do anything. The only thing she says is whatever you do it should be ethical.",
+    "avatar_color": "success"
+  },
+  {
+    "id": 3,
+    "name": "Mrs. Gunjan Saxena",
+    "title": "Project Leader",
+    "company": "Acme Technologies Pvt. Ltd.",
+    "location": "Noida, INDIA",
+    "email": "gunjan@acmet.com",
+    "rating": 5,
+    "comment": "First time I saw Bhagwan Shailja Narayan in a Utsav. There I was highly impressed by her smile. I was so impressed that it was continuously present in my mind. There were some other things in that Utsav that impressed me such as - all were working together to prepare food, not a single food grain was wastage. This all was looking extraordinary. After that I went in evening Satsang with my mother. There when I first time listen to the Gyan given by her I realized that it was so simple and beautiful. I was highly impressed till deep in side my heart. I felt that it can be said only by God.",
+    "avatar_color": "info"
+  },
+  {
+    "id": 4,
+    "name": "Mr. B. K. Bharadwaj",
+    "title": "(Retd.) Additional Commissioner of Income Tax",
+    "company": "",
+    "location": "INDIA",
+    "email": "",
+    "rating": 5,
+    "comment": "In the present set up, it is very difficult to realize that God can live with you, guide you in person and help you to live every moment of life. When a friend of mine spoke to me about Bhagwan Shailja Narayan it attracted my attention and when i met Prabhuji (as we fondly address Bhagwan Shailja narayan) for the first time i was deeply impressed by her personality. Over the years i have come to realize that it is only GOD - who can always guide, protect and always remain with me regardless of place, time or any worldly condition and Bhagwan shailja Narayan has kindly accepted me. I feel that the relationship is for ever.",
+    "avatar_color": "danger"
+  }
+  ,
+  {
+    "id": 5,
+    "name": "Mrs. Reema Gupta",
+    "title": "Housewife",
+    "company": "",
+    "location": "INDIA",
+    "email": "reemag68@yahoo.co.in",
+    "rating": 5,
+    "comment": "When I saw Bhagwan Shailja Narayan I experienced a different feeling which I never felt earlier. After some time I realized that my Maa whom I worshiped is now on the earth in the form of Bhagwan Shailja Narayan. She gave me gyan how can I get her. That was the beautiful moment in my life.",
+    "avatar_color": "primary"
+  },
+  {
+    "id": 6,
+    "name": "Mrs. Neha Gupta",
+    "title": "Housewife",
+    "company": "",
+    "location": "INDIA",
+    "email": "neha1ag@yahoo.com",
+    "rating": 5,
+    "comment": "I have heard about Bhagwan Shailja Narayan. She is a household lady. Her followers speak about herself as Avatar of Bhagawan vishnu and Laxmiji.I feel that she has powers but she is God is difficult to say. She lives a life which can not be said to be of king of universe.",
+    "avatar_color": "info"
+  },
+  {
+    "id": 6,
+    "name": "Mr. Vikas Saxena",
+    "title": "Senior Lecturer",
+    "company": "Department of Computer Science Jaypee Institute of Information and Technology",
+    "location": "Noida, INDIA",
+    "email": "vikas.saxena@jiit.ac.in",
+    "rating": 5,
+    "comment": "I believe in Bhagwan Shailja Narayan. It is only because of her special blessings that I could understand that she is my GOD. Today in such a sinful world, when it is very difficult to move a single step, my life got its way. When I met her first time I realized that it was very difficult for me to get away from her and her \"Gyan\" she taught me how my single & smallest activity (Karma) can be associated with my GOD and thus to move ahead to get the aim of my life.",
+    "avatar_color": "success"
+  }
+]

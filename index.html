@@ -1,155 +1,832 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bhagwan Shailja Narayan - 6th Incarnation of Lord Vishnu">
     <meta name="keywords" content="Bhagwan Shailja Narayan, vilay, laxmi narayan, lord vishnu">
     <title>Bhagwan Shailja Narayan</title>
-    
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Header Styling */
+        .header-section {
+            background-color: white;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .header-section .navbar-nav .nav-link {
+            color: #000000 !important;
+            font-weight: 500;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .header-section .navbar-nav .nav-link:hover {
+            color: #0d6efd !important;
+        }
+
+        .header-section .navbar-nav .nav-link.active {
+            color: #0d6efd !important;
+            background-color: #e7f1ff;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        /* SPA Specific Styles */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Hero Section Styles */
+        .hero {
+
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Lightbox/Image Viewer Styles */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .lightbox-overlay.active {
+            display: flex;
+        }
+
+        .lightbox-container {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-title {
+            color: white;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 100%;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-close:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            z-index: 10000;
+        }
+
+        .lightbox-nav:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .lightbox-prev {
+            left: 10px;
+        }
+
+        .lightbox-next {
+            right: 10px;
+        }
+
+        .lightbox-counter {
+            color: white;
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .gallery-card img,
+        .gallery-card video {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-card img:hover,
+        .gallery-card video:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
+
 <body>
     <!-- Header will be loaded here by jQuery -->
     <div id="header-container"></div>
 
-    <!-- Image/Video Slider -->
-    <section class="slider-section">
-        <div id="imageSlider" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#imageSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#imageSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#imageSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#imageSlider" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <!-- HOME PAGE SECTION -->
+    <section id="home-page" class="page-section active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Bhagwan Shailja Narayan</h1>
+                <p>LORD SHAILJA NARAYAN</p>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="../image.JPG" class="d-block w-100 slider-img" alt="Bhagwan Shailja Narayan">
+        </section>
+
+        <!-- Image/Video Slider -->
+        <!-- <section class="slider-section">
+            <div id="imageSlider" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#imageSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#imageSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#imageSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#imageSlider" data-bs-slide-to="3" aria-label="Slide 4"></button>
                 </div>
-                <div class="carousel-item">
-                    <img src="../1.JPG" class="d-block w-100 slider-img" alt="Slide 2">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="image.JPG" class="d-block w-100 slider-img" alt="Bhagwan Shailja Narayan">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="1.JPG" class="d-block w-100 slider-img" alt="Slide 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="2.JPG" class="d-block w-100 slider-img" alt="Slide 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="3.JPG" class="d-block w-100 slider-img" alt="Slide 4">
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="../2.JPG" class="d-block w-100 slider-img" alt="Slide 3">
-                </div>
-                <div class="carousel-item">
-                    <img src="../3.JPG" class="d-block w-100 slider-img" alt="Slide 4">
+                <button class="carousel-control-prev" type="button" data-bs-target="#imageSlider" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#imageSlider" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section> -->
+
+        <!-- Main Content Section -->
+        <main class="main-content">
+            <div class="container">
+                <div class="row">
+                    <div class=" mx-auto">
+                        <!-- Featured Announcements -->
+                        <!-- <section class="announcements mb-5">
+                            <h2 class="section-title">Latest Updates</h2>
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                <strong><i class="fas fa-calendar-alt"></i> Schedule Available</strong>
+                                <p>Schedule for December 2025 is now uploaded. <a href="#" onclick="navigateTo('news')" class="alert-link">View Schedule</a></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong><i class="fas fa-book"></i> New Books Available</strong>
+                                <p>List of Books is now available. <a href="#" class="alert-link">Browse Books</a></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong><i class="fas fa-star"></i> Maha Yagya</strong>
+                                <p>Maha Laxmi Narayan Maha Yagya details. <a href="#" class="alert-link">Learn More</a></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </section> -->
+
+                        <!-- Introduction Section -->
+
+
+
+                        <section class="intro-section mb-5">
+                            <h2 class="section-title">LORD SHAILJA NARAYAN</h2>
+                            <div class="row align-items-center g-4">
+                                <div class="col-12 col-lg-7">
+                                    <p class="intro-text">
+                                        God is creator, regulator and ultimate eliminator (dooms day) in the universe.
+
+                                        As per Hindu mythology LORD NARAYAN incarnated himself on the earth,
+
+                                        in India, as Lord Ram in Ayodhya and as Lord Krishn in Mathura. During
+
+                                        this span MOTHER LORD LAXMI called MAA LAXMI was present as Maa
+
+                                        Sita with Lord Ram and Maa Radha with Lord Krishn. These are called
+
+                                        'Purn Avtar' of lord Narayan and Maa Laxmi.
+
+                                        When God incarnates himself in his beloved devotee at any stage of life
+
+                                        then it is called 'AVESH AVTAR'. According to a belief, Lord Narayan took '
+
+                                        Avesh Avtar' in devotee Siddharth who was later on accepted as Lord
+
+                                        Gautam Buddh. Similarly Lord Satyasen, Lord Kapil, Lord Parshuram
+
+                                        and Lord Chaitanya Mahaprabhu are also Avesh Avtar of Lord Narayan. In
+
+                                        this sequence Lord Narayan took Avesh Avtar along with Maa Laxmi in his
+
+                                        esteemed beloved devotee SHAILJA on 16 Feb 1997 who is now
+
+                                        accepted as Lord SHAILJA NARAYAN by a good number of devotees. It is
+
+                                        worth mentioning here that God is a subject of faith, believe and trust
+
+                                        and hence this acceptance is no way a debatable matter, for hurting the
+
+                                        feelings of any person or for opposing any religion, what so ever it may be.
+                                    </p>
+                                </div>
+                                <div class="col-12 col-lg-5 text-center">
+                                    <img src="images/image.JPG" alt="Bhagwan Shailja Narayan"
+                                        class="img-fluid rounded shadow-sm" style="max-width: 100%; height: auto;">
+                                </div>
+                            </div>
+
+                        </section>
+
+                        <!-- Quick Links -->
+                        <section class="quick-links">
+                            <h2 class="section-title">Explore</h2>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <a href="#" onclick="navigateTo('vilay')"
+                                        class="quick-link-card card text-decoration-none h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-lightbulb fa-2x mb-3 text-primary"></i>
+                                            <h5 class="card-title">The Aim Of Life</h5>
+                                            <p class="card-text">Understand Vilay and the path to spiritual
+                                                enlightenment</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" onclick="navigateTo('opinion')"
+                                        class="quick-link-card card text-decoration-none h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-users fa-2x mb-3 text-success"></i>
+                                            <h5 class="card-title">People's Opinion</h5>
+                                            <p class="card-text">Read testimonials and experiences from our community
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" onclick="navigateTo('activities')"
+                                        class="quick-link-card card text-decoration-none h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-calendar-alt fa-2x mb-3 text-info"></i>
+                                            <h5 class="card-title">Activities</h5>
+                                            <p class="card-text">Join our spiritual programs and community events</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" onclick="navigateTo('books')"
+                                        class="quick-link-card card text-decoration-none h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-book fa-2x mb-3 text-secondary"></i>
+                                            <h5 class="card-title">Books</h5>
+                                            <p class="card-text">Explore our collection of spiritual literature</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" onclick="navigateTo('news')"
+                                        class="quick-link-card card text-decoration-none h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-newspaper fa-2x mb-3 text-warning"></i>
+                                            <h5 class="card-title">News & Events</h5>
+                                            <p class="card-text">Stay updated with latest news and upcoming events</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" onclick="navigateTo('contact')"
+                                        class="quick-link-card card text-decoration-none h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-envelope fa-2x mb-3 text-danger"></i>
+                                            <h5 class="card-title">Contact Us</h5>
+                                            <p class="card-text">Get in touch with us for queries and feedback</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#imageSlider" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#imageSlider" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
+        </main>
     </section>
 
-    <!-- Main Content Section -->
-    <main class="main-content">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <!-- Featured Announcements -->
-                    <section class="announcements mb-5">
-                        <h2 class="section-title">Latest Updates</h2>
-                        <div class="alert alert-info alert-dismissible fade show" role="alert">
-                            <strong><i class="fas fa-calendar-alt"></i> Schedule Available</strong>
-                            <p>Schedule for December 2025 is now uploaded. <a href="pages/news.html" class="alert-link">View Schedule</a></p>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <!-- VILAY PAGE SECTION -->
+    <section id="vilay-page" class="page-section">
+        <main class="main-content">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <!-- Page Title -->
+                        <div class="page-header mb-5">
+                            <h2 class="page-title">The Aim of Life - Vilay</h2>
+                            <p class="lead text-muted">Understanding the ultimate spiritual goal</p>
                         </div>
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong><i class="fas fa-book"></i> New Books Available</strong>
-                            <p>List of Books is now available. <a href="../books.html" class="alert-link">Browse Books</a></p>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong><i class="fas fa-star"></i> Maha Yagya</strong>
-                            <p>Maha Laxmi Narayan Maha Yagya details. <a href="../mahayagya.html" class="alert-link">Learn More</a></p>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    </section>
 
-                    <!-- Introduction Section -->
-                    <section class="intro-section mb-5">
-                        <h2 class="section-title">Welcome</h2>
-                        <p class="intro-text">
-                            Welcome to the official website of Bhagwan Shailja Narayan, the 6th Incarnation of Lord Vishnu. 
-                            This divine platform is dedicated to spreading the knowledge of Vilay, the ultimate spiritual goal 
-                            of blending the soul with God.
-                        </p>
-                        <p class="intro-text">
-                            Through the teachings of Prem (ultimate love) and spiritual knowledge, we aim to guide seekers 
-                            towards their ultimate purpose of life - achieving Vilay and liberation from the cycle of birth and death.
-                        </p>
-                    </section>
+                        <!-- Main Content -->
+                        <section class="content-section mb-5">
+                            <div class="content-box">
+                                <h3 class="section-title">What is Vilay?</h3>
+                                <p class="content-text">
+                                    Vilay means blending or mixing of soul with God. Vilay eliminates birth and death
+                                    cycle.
+                                    The ultimate aim of every living being's life is Vilay and every one must accept it.
+                                </p>
+                            </div>
 
-                    <!-- Quick Links -->
-                    <section class="quick-links">
-                        <h2 class="section-title">Explore</h2>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <a href="pages/vilay.html" class="quick-link-card card text-decoration-none h-100">
-                                    <div class="card-body text-center">
-                                        <i class="fas fa-lightbulb fa-2x mb-3 text-primary"></i>
-                                        <h5 class="card-title">The Aim Of Life</h5>
-                                        <p class="card-text">Understand Vilay and the path to spiritual enlightenment</p>
-                                    </div>
-                                </a>
+                            <div class="content-box">
+                                <h3 class="section-title">The Divine Message</h3>
+                                <p class="content-text">
+                                    God Shailja Narayan has enlightened for the welfare of human kind that a soul shall
+                                    strive to
+                                    achieve his aim at the earliest. She says that God has come down in this avatar to
+                                    teach us the
+                                    path of knowledge and '<em>Prem</em>'. The ultimate condition of love or something
+                                    greater than
+                                    love which is meant only for one is '<em>Prem</em>'. She says it is up to you to
+                                    understand,
+                                    accept and follow her preaching and for this there is no compulsion of any kind.
+                                </p>
                             </div>
-                            <div class="col-md-6">
-                                <a href="pages/opinion.html" class="quick-link-card card text-decoration-none h-100">
-                                    <div class="card-body text-center">
-                                        <i class="fas fa-users fa-2x mb-3 text-success"></i>
-                                        <h5 class="card-title">People's Opinion</h5>
-                                        <p class="card-text">Read testimonials and experiences from our community</p>
-                                    </div>
-                                </a>
+
+                            <div class="content-box">
+                                <h3 class="section-title">Path to Achieve Vilay</h3>
+                                <p class="content-text mb-3">
+                                    To achieve Vilay in your God following points are noteworthy:
+                                </p>
+                                <div class="guidelines">
+                                    <ol class="guidelines-list">
+                                        <li><strong>Accept any form and image of your God.</strong></li>
+                                        <li><strong>Devote to your God.</strong></li>
+                                        <li><strong>God must always be in your thoughts.</strong></li>
+                                        <li><strong>God must be your only need.</strong></li>
+                                        <li><strong>Be kind to all creatures and human beings.</strong></li>
+                                        <li><strong>Accept God and belittle your Ego.</strong></li>
+                                        <li><strong>God must be your only 'Prem'.</strong></li>
+                                        <li>
+                                            <strong>God meets you through Prem only.</strong> You need not go anywhere
+                                            outside.
+                                            By living in your home and following your duty you can achieve your ultimate
+                                            aim and
+                                            God will accept you and by your Prem for God you can find HIM.
+                                        </li>
+                                        <li>
+                                            <strong>God does not want your wealth in any form</strong> because he
+                                            himself has
+                                            given that to you.
+                                        </li>
+                                    </ol>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <a href="pages/news.html" class="quick-link-card card text-decoration-none h-100">
-                                    <div class="card-body text-center">
-                                        <i class="fas fa-newspaper fa-2x mb-3 text-warning"></i>
-                                        <h5 class="card-title">News & Events</h5>
-                                        <p class="card-text">Stay updated with latest news and upcoming events</p>
+
+                            <div class="content-box bg-light">
+                                <h3 class="section-title">Key Teachings</h3>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="teaching-card">
+                                            <h5><i class="fas fa-heart text-danger"></i> Prem (Ultimate Love)</h5>
+                                            <p>The ultimate condition of love or something greater than love, meant only
+                                                for the divine.</p>
+                                        </div>
                                     </div>
-                                </a>
-                            </div>
-                            <div class="col-md-6">
-                                <a href="pages/contact.html" class="quick-link-card card text-decoration-none h-100">
-                                    <div class="card-body text-center">
-                                        <i class="fas fa-envelope fa-2x mb-3 text-danger"></i>
-                                        <h5 class="card-title">Contact Us</h5>
-                                        <p class="card-text">Get in touch with us for queries and feedback</p>
+                                    <div class="col-md-6">
+                                        <div class="teaching-card">
+                                            <h5><i class="fas fa-om text-primary"></i> Spiritual Knowledge</h5>
+                                            <p>Understanding the true nature of existence and our connection with the
+                                                divine.</p>
+                                        </div>
                                     </div>
-                                </a>
+                                    <div class="col-md-6">
+                                        <div class="teaching-card">
+                                            <h5><i class="fas fa-peace text-success"></i> Devotion</h5>
+                                            <p>Complete dedication and surrender to the divine will of God.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="teaching-card">
+                                            <h5><i class="fas fa-hand-holding-heart text-warning"></i> Kindness</h5>
+                                            <p>Being compassionate to all creatures and human beings without
+                                                discrimination.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+
+                        <!-- Call to Action -->
+                        <section class="cta-section text-center py-4 bg-light rounded">
+                            <h3>Begin Your Spiritual Journey</h3>
+                            <p>Learn more about the teachings and join our community.</p>
+                            <a href="#" onclick="navigateTo('contact')" class="btn btn-primary btn-lg mt-3">Get in
+                                Touch</a>
+                        </section>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </section>
+
+    <!-- OPINION PAGE SECTION -->
+    <section id="opinion-page" class="page-section">
+        <main class="main-content">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <!-- Page Title -->
+                        <div class="page-header mb-5">
+                            <h2 class="page-title">People's Opinion</h2>
+                            <p class="lead text-muted">Testimonials and experiences from our community</p>
+                        </div>
+
+                        <!-- Testimonials Section -->
+                        <section class="testimonials-section" id="testimonials-container">
+                            <!-- Testimonials will be loaded here via JavaScript -->
+                        </section>
+
+                        <!-- Share Your Opinion -->
+                        <section class="share-opinion-section bg-light p-5 rounded mt-5">
+                            <h3 class="text-center mb-4">Share Your Experience</h3>
+                            <p class="text-center mb-4">Have a story or experience to share? We would love to hear from
+                                you!</p>
+                            <div class="text-center">
+                                <a href="#" onclick="navigateTo('contact')" class="btn btn-primary btn-lg">Share Your
+                                    Story</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <!-- ACTIVITIES PAGE SECTION -->
+    <section id="activities-page" class="page-section">
+        <main class="main-content">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <!-- Page Title -->
+                        <div class="page-header mb-5">
+                            <h2 class="page-title">Activities & Programs</h2>
+                            <p class="lead text-muted">Spiritual programs, events, and community activities</p>
+                        </div>
+
+                        <!-- Maha Yagya Gallery Section - Dynamic Content -->
+                        <section class="maha-yagya-gallery mt-5 mb-5">
+                            <h3 class="mb-4 text-center">Maha Laxmi Narayan Maha Yagya Coverage</h3>
+                            <p class="text-center text-muted mb-5">विलय धाम में आयोजित महा लक्ष्मीनारायण महायज्ञ की
+                                झलकियां</p>
+
+                            <!-- Gallery will be loaded dynamically from JSON -->
+                            <div id="mahayagya-gallery-container">
+                                <div class="text-center">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading gallery...</span>
+                                    </div>
+                                    <p class="text-muted mt-2">Loading gallery...</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Videos Carousel Section -->
+                        <!-- <section class="videos-carousel-section mt-5 mb-5">
+                            <h3 class="mb-4 text-center">Maha Laxmi Narayan Maha Yagya Coverage</h3>
+                            <div id="videosCarousel" class="carousel slide" data-bs-ride="carousel">
+                               
+                                <div class="carousel-inner">
+                                    
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#videosCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#videosCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </section>  -->
+
+
+                        <!-- Call to Action -->
+                        <section class="cta-section text-center py-4 bg-light rounded mt-5">
+                            <h3>Participate in Our Activities</h3>
+                            <p>We welcome all devotees and spiritual seekers to join our programs and activities.</p>
+                            <a href="#" onclick="navigateTo('contact')" class="btn btn-primary btn-lg mt-3">Register or
+                                Inquire</a>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <!-- NEWS PAGE SECTION -->
+    <section id="news-page" class="page-section">
+        <main class="main-content">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <!-- Page Title -->
+                        <div class="page-header mb-5">
+                            <h2 class="page-title">News & Events</h2>
+                            <p class="lead text-muted">Stay updated with latest announcements and events</p>
+                        </div>
+
+                        <!-- News Section - Dynamic Content -->
+                        <div id="news-container">
+                            <div class="text-center">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading news...</span>
+                                </div>
+                                <p class="text-muted mt-2">Loading news...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <!-- BOOKS PAGE SECTION -->
+    <section id="books-page" class="page-section">
+        <main class="main-content">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <!-- Page Title -->
+                        <div class="page-header mb-5">
+                            <h2 class="page-title">Books</h2>
+                            <p class="lead text-muted">List of Books published by Vilay Gyan Dharmarth Sansthan</p>
+                        </div>
+
+                        <!-- Books Section - Dynamic Modern Cards -->
+                        <section class="books-section mb-5">
+                            <!-- Books will be loaded dynamically from JSON -->
+                            <div id="books-section-container">
+                                <div class="text-center">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading books...</span>
+                                    </div>
+                                    <p class="text-muted mt-2">Loading books...</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Call to Action -->
+                        <section class="cta-section text-center py-4 bg-light rounded mt-5">
+                            <h3>Learn More About Our Books</h3>
+                            <p>Explore our collection of spiritual literature and wisdom.</p>
+                            <a href="#" onclick="navigateTo('contact')" class="btn btn-primary btn-lg mt-3">Inquire
+                                About Books</a>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <!-- CONTACT PAGE SECTION -->
+    <section id="contact-page" class="page-section">
+        <main class="main-content">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <!-- Page Title -->
+                        <div class="page-header mb-5">
+                            <h2 class="page-title">Contact Us</h2>
+                            <p class="lead text-muted">Get in touch with us. We're here to help and answer any questions
+                                you might have.</p>
+                        </div>
+
+                        <!-- Contact Information Cards -->
+                        <section class="contact-info mb-5">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="contact-card card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-map-marker-alt fa-3x mb-3 text-primary"></i>
+                                            <h5 class="card-title">Address</h5>
+                                            <p class="card-text">
+                                                Shri Narayan Bhawan, Siddharth Nagar,<br>
+                                                Bara Bagh, Hanuman Mandir Road,<br>
+                                                Bareilly, India
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="contact-card card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-envelope fa-3x mb-3 text-danger"></i>
+                                            <h5 class="card-title">Email</h5>
+                                            <p class="card-text">
+                                                <a href="mailto:vilaygyan@gmail.com" class="text-decoration-none">
+                                                    vilaygyan@gmail.com
+                                                </a><br>
+                                                For general inquiries and feedback
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </section>
+
+                        <!-- Contact Form -->
+                        <!-- <section class="contact-form-section bg-light p-5 rounded">
+                            <h3 class="mb-4">Send us a Message</h3>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number (Optional)</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" class="form-control" id="subject" name="subject" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                </div>                               
+
+                                <button type="submit" class="btn btn-primary btn-lg w-100">
+                                    <i class="fas fa-paper-plane"></i> Send Message
+                                </button>
+                            </form>
+                            <div id="formMessage" class="alert mt-3 d-none"></div>
+                        </section> -->
+
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
 
     <!-- Footer will be loaded here by jQuery -->
     <div id="footer-container"></div>
 
+    <!-- Lightbox/Image Viewer -->
+    <div id="lightbox-overlay" class="lightbox-overlay">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="lightbox-container">
+            <img id="lightbox-image" class="lightbox-image" alt="Full size image">
+            <div class="lightbox-title" id="lightbox-title"></div>
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Custom JS -->
     <script src="js/script.js"></script>
+
+    <!-- Carousel Manager Script -->
+    <script src="js/carousel-manager.js"></script>
+
+    <!-- Book Section Script (was missing) -->
+    <script src="js/book-section.js"></script>
+
+    <!-- News Section Script -->
+    <script src="js/news-section.js"></script>
+
+    <!-- Contact Form Script -->
+    <script src="js/contact-form.js"></script>
+
+    <!-- Gallery Generator Script -->
+    <script src="js/gallery-generator.js"></script>
+
+    <!-- SPA Router Script -->
+    <script src="js/spa.js"></script>
 </body>
+
 </html>
