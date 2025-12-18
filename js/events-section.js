@@ -85,6 +85,11 @@ async function openEventDetails(eventId) {
         // Show details page
         $('#event-details-page').addClass('active').show();
         window.scrollTo(0, 0);
+
+        // Update navigation active state
+        if (typeof updateActiveNavigation === 'function') {
+            updateActiveNavigation('events');
+        }
     }
 
     // Show loading state
