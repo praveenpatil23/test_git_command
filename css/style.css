@@ -334,7 +334,7 @@ body {
 
 .news-item .card:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); - Removed to prevent flickering */
 }
 
 .news-item .card-header {
@@ -720,4 +720,251 @@ button:focus {
     position: absolute;
     white-space: nowrap;
     width: 1px;
+}
+/* ===================================
+   Activities Page Styles (Redesign)
+   =================================== */
+
+.activity-card {
+    background: #fff;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.activity-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.activity-header {
+    background: #fff;
+    padding: 20px 25px;
+    border-left: 6px solid var(--primary-color);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.activity-header:hover {
+    background-color: #f8f9fa;
+}
+
+.activity-title-wrapper {
+    flex-grow: 1;
+}
+
+.activity-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.activity-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 160, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    transition: transform 0.3s ease;
+}
+
+.activity-icon-wrapper i {
+    color: var(--primary-color);
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate icon when expanded */
+.collapsed .activity-icon-wrapper i {
+    transform: rotate(0deg);
+}
+
+.activity-header:not(.collapsed) .activity-icon-wrapper i {
+    transform: rotate(180deg);
+}
+
+.activity-body {
+    padding: 30px;
+    background-color: #fff;
+    border-top: 1px solid #f0f0f0;
+}
+
+.activity-subtitle {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.activity-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* Gallery Improvements */
+.activity-gallery-wrapper .gallery-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.activity-gallery-wrapper .gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.activity-gallery-wrapper .card-img-top, 
+.activity-gallery-wrapper video {
+    border-radius: 12px 12px 0 0 !important;
+}
+
+.activity-gallery-wrapper .card-body {
+    padding: 20px;
+}
+
+.activity-gallery-wrapper .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.activity-gallery-wrapper .card-text {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ===================================
+   Events Page Styles (Collage)
+   =================================== */
+
+.event-collage-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.event-collage-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+/* Link Wrapper */
+a.event-link-wrapper {
+    color: inherit;
+    display: block;
+}
+
+a.event-link-wrapper:hover {
+    color: inherit;
+}
+
+/* Header */
+.event-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Playfair Display', serif; /* Or fallback serif */
+}
+
+.event-date {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Action Button */
+.event-action .btn {
+    border-width: 1px;
+    font-size: 0.85rem;
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+}
+
+.event-collage-card:hover .event-action .btn {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Collage Grid */
+.collage-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 200px 200px;
+    gap: 10px;
+    height: 410px; /* 200 + 200 + gap */
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.collage-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.collage-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.event-collage-card:hover .collage-item img {
+    transform: scale(1.05);
+}
+
+/* First item (index 0) is big one on left */
+.collage-item-0 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3; /* Spans 2 rows */
+}
+
+/* Other items fill remaining slots */
+.collage-item-1 { grid-column: 2; grid-row: 1; }
+.collage-item-2 { grid-column: 3; grid-row: 1; }
+.collage-item-3 { grid-column: 2; grid-row: 2; }
+.collage-item-4 { grid-column: 3; grid-row: 2; }
+
+@media (max-width: 768px) {
+    .collage-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 200px 150px 150px;
+        height: auto;
+    }
+    
+    .collage-item-0 {
+        grid-column: 1 / -1; /* Spans full width */
+        grid-row: 1;
+    }
+    .collage-item-1 { grid-column: 1; grid-row: 2; }
+    .collage-item-2 { grid-column: 2; grid-row: 2; }
+    .collage-item-3 { grid-column: 1; grid-row: 3; }
+    .collage-item-4 { grid-column: 2; grid-row: 3; }
 }

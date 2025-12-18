@@ -1,0 +1,384 @@
+{
+    "activities": [
+        {
+            "id": "mahayagya",
+            "title": "Maha Laxmi Narayan Maha Yagya Coverage",
+            "subtitle": "विलय धाम में आयोजित महा लक्ष्मीनारायण महायज्ञ की झलकियां",
+            "gallery": [
+                {
+                    "id": "haldi",
+                    "title": "Haldi Purification Ritual",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ में उपयोग में लाई शिलाओं को हल्दी के जल से पवित्र किया गया",
+                    "media": [
+                        {
+                            "src": "./mahayagya/haldi-brick-purify.mp4",
+                            "type": "video"
+                        }
+                    ]
+                },
+                {
+                    "id": "bricks",
+                    "title": "Sacred Bricks & Materials",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ में प्रयोग में आने वाली पवित्र शिलाएं, सामग्रियां और पवित्र मिट्टी",
+                    "media": [
+                        {
+                            "src": "./mahayagya/bricks.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "om-brick",
+                    "title": "Om Symbol Inscription",
+                    "text": "प्रत्येक शिला पर भगवान शैलजा नारायण के द्वारा ऐपन से ऊॅं जी लिखकर सुसज्जित किया गया",
+                    "media": [
+                        {
+                            "src": "./mahayagya/om-brick.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "devotees",
+                    "title": "Devotees Gathering",
+                    "text": "बरेली/काशीपुर के श्री नारायण भवन में श्रद्धालु एकजुट होकर महायज्ञ की तैयारी में लगे रहे",
+                    "media": [
+                        {
+                            "src": "./mahayagya/bhak1.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/bhakt2.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "bhoomi-pujan",
+                    "title": "Bhoomi Poojan (Earth Blessing)",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ की महावेदी स्थापित की जाने वाली भूमि को पूजित करते हुए भगवान",
+                    "media": [
+                        {
+                            "src": "./mahayagya/bhoomi-poojan.mp4",
+                            "type": "video"
+                        }
+                    ]
+                },
+                {
+                    "id": "decoration",
+                    "title": "Sacred Pot Decoration",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ में उपयोग आने वाले पवित्र जल से पवित्र किए गए कलश की सज्जा",
+                    "media": [
+                        {
+                            "src": "./mahayagya/decoration.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "shiv-abhishek",
+                    "title": "Shiva Abhishek Series",
+                    "text": "भगवान शिव के शिवलिंग रूप के जलाभिषेक और सजावट की पूरी प्रक्रिया",
+                    "media": [
+                        {
+                            "src": "./mahayagya/bhagwan-shiv1.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/bhagwan-shiv2.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/bhagwan-shiv3.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/bhagwan-shiv4.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/bhagwan-shiv5.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/bhagwan-shiv6.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/bhagwan-shiv7.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "om-formation",
+                    "title": "Sacred Om Formation",
+                    "text": "भगवान शिव के शिवलिंग रूप से बने पूर्ण सुसज्जित ऊॅं जी - भगवान के नव रूप को शत-शत नमन",
+                    "media": [
+                        {
+                            "src": "./mahayagya/om1.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/om2.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "devotional-videos",
+                    "title": "Bhagwan's Devotional Videos",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ में भगवान शैलजा नारायण की प्रार्थना और दिव्य कार्य",
+                    "media": [
+                        {
+                            "src": "./mahayagya/MAHADEV1.mp4",
+                            "type": "video"
+                        },
+                        {
+                            "src": "./mahayagya/MAHADEV2.mp4",
+                            "type": "video"
+                        },
+                        {
+                            "src": "./mahayagya/MAHADEV3.mp4",
+                            "type": "video"
+                        }
+                    ]
+                },
+                {
+                    "id": "maha-lakshmi",
+                    "title": "Maha Lakshmi Divine Chant",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ में माॅं लक्ष्मी का महा मन्त्र विलय धाम में पूरे समय गुंजित होता रहा",
+                    "media": [
+                        {
+                            "src": "./mahayagya/maha-laxmi-mantr.mp4",
+                            "type": "video"
+                        }
+                    ]
+                },
+                {
+                    "id": "sacred-thread",
+                    "title": "Sacred Thread (Kalawa)",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ में अभिमंत्रित किए हुए पीले रंग के धागे जो आहुति देने के पश्चात बांधे गए",
+                    "media": [
+                        {
+                            "src": "./mahayagya/kalawa.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "sacred-clothes",
+                    "title": "Sacred Clothes & Attire",
+                    "text": "भगवान लक्ष्मीनारायण, भगवान शिवगौरा और भगवान ब्रह्मा माॅं ब्रह्माणी के लिए बनाए गए पवित्र वस्त्र",
+                    "media": [
+                        {
+                            "src": "./mahayagya/clothes.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "sacred-utensils",
+                    "title": "Sacred Offerings Utensils",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ में भगवान के लिए बनाए गए पवित्र भोजन की सामग्री और उपयोग",
+                    "media": [
+                        {
+                            "src": "./mahayagya/utensils.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "mahayagya",
+            "title": "Maha Laxmi Narayan Maha Yagya Coverage",
+            "subtitle": "विलय धाम में आयोजित महा लक्ष्मीनारायण महायज्ञ की झलकियां",
+            "gallery": [
+                {
+                    "id": "haldi",
+                    "title": "Haldi Purification Ritual",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ में उपयोग में लाई शिलाओं को हल्दी के जल से पवित्र किया गया",
+                    "media": [
+                        {
+                            "src": "./mahayagya/haldi-brick-purify.mp4",
+                            "type": "video"
+                        }
+                    ]
+                },
+                {
+                    "id": "bricks",
+                    "title": "Sacred Bricks & Materials",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ में प्रयोग में आने वाली पवित्र शिलाएं, सामग्रियां और पवित्र मिट्टी",
+                    "media": [
+                        {
+                            "src": "./mahayagya/bricks.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "om-brick",
+                    "title": "Om Symbol Inscription",
+                    "text": "प्रत्येक शिला पर भगवान शैलजा नारायण के द्वारा ऐपन से ऊॅं जी लिखकर सुसज्जित किया गया",
+                    "media": [
+                        {
+                            "src": "./mahayagya/om-brick.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "devotees",
+                    "title": "Devotees Gathering",
+                    "text": "बरेली/काशीपुर के श्री नारायण भवन में श्रद्धालु एकजुट होकर महायज्ञ की तैयारी में लगे रहे",
+                    "media": [
+                        {
+                            "src": "./mahayagya/bhak1.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/bhakt2.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "bhoomi-pujan",
+                    "title": "Bhoomi Poojan (Earth Blessing)",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ की महावेदी स्थापित की जाने वाली भूमि को पूजित करते हुए भगवान",
+                    "media": [
+                        {
+                            "src": "./mahayagya/bhoomi-poojan.mp4",
+                            "type": "video"
+                        }
+                    ]
+                },
+                {
+                    "id": "decoration",
+                    "title": "Sacred Pot Decoration",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ में उपयोग आने वाले पवित्र जल से पवित्र किए गए कलश की सज्जा",
+                    "media": [
+                        {
+                            "src": "./mahayagya/decoration.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "shiv-abhishek",
+                    "title": "Shiva Abhishek Series",
+                    "text": "भगवान शिव के शिवलिंग रूप के जलाभिषेक और सजावट की पूरी प्रक्रिया",
+                    "media": [
+                        {
+                            "src": "./mahayagya/bhagwan-shiv1.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/bhagwan-shiv2.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/bhagwan-shiv3.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/bhagwan-shiv4.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/bhagwan-shiv5.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/bhagwan-shiv6.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/bhagwan-shiv7.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "om-formation",
+                    "title": "Sacred Om Formation",
+                    "text": "भगवान शिव के शिवलिंग रूप से बने पूर्ण सुसज्जित ऊॅं जी - भगवान के नव रूप को शत-शत नमन",
+                    "media": [
+                        {
+                            "src": "./mahayagya/om1.jpeg",
+                            "type": "image"
+                        },
+                        {
+                            "src": "./mahayagya/om2.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "devotional-videos",
+                    "title": "Bhagwan's Devotional Videos",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ में भगवान शैलजा नारायण की प्रार्थना और दिव्य कार्य",
+                    "media": [
+                        {
+                            "src": "./mahayagya/MAHADEV1.mp4",
+                            "type": "video"
+                        },
+                        {
+                            "src": "./mahayagya/MAHADEV2.mp4",
+                            "type": "video"
+                        },
+                        {
+                            "src": "./mahayagya/MAHADEV3.mp4",
+                            "type": "video"
+                        }
+                    ]
+                },
+                {
+                    "id": "maha-lakshmi",
+                    "title": "Maha Lakshmi Divine Chant",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ में माॅं लक्ष्मी का महा मन्त्र विलय धाम में पूरे समय गुंजित होता रहा",
+                    "media": [
+                        {
+                            "src": "./mahayagya/maha-laxmi-mantr.mp4",
+                            "type": "video"
+                        }
+                    ]
+                },
+                {
+                    "id": "sacred-thread",
+                    "title": "Sacred Thread (Kalawa)",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ में अभिमंत्रित किए हुए पीले रंग के धागे जो आहुति देने के पश्चात बांधे गए",
+                    "media": [
+                        {
+                            "src": "./mahayagya/kalawa.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "sacred-clothes",
+                    "title": "Sacred Clothes & Attire",
+                    "text": "भगवान लक्ष्मीनारायण, भगवान शिवगौरा और भगवान ब्रह्मा माॅं ब्रह्माणी के लिए बनाए गए पवित्र वस्त्र",
+                    "media": [
+                        {
+                            "src": "./mahayagya/clothes.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                },
+                {
+                    "id": "sacred-utensils",
+                    "title": "Sacred Offerings Utensils",
+                    "text": "महा लक्ष्मीनारायण महायज्ञ में भगवान के लिए बनाए गए पवित्र भोजन की सामग्री और उपयोग",
+                    "media": [
+                        {
+                            "src": "./mahayagya/utensils.jpeg",
+                            "type": "image"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

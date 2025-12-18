@@ -61,7 +61,7 @@ function setActiveNavLink() {
             'index.html': 'home',
             'index_2.html': 'home',
             'app.html': 'home',
-            'vilay.html': 'vilay',
+            // 'vilay.html': 'vilay',
             'opinion.html': 'opinion',
             'news.html': 'news',
             'contact.html': 'contact'
@@ -246,66 +246,9 @@ function initializeComponents() {
         });
     });
 
-    // ===================================
-    // Form Validation
-    // ===================================
 
-    $('#contactForm').on('submit', function (e) {
-        e.preventDefault();
 
-        var formData = {
-            name: $('#name').val().trim(),
-            email: $('#email').val().trim(),
-            phone: $('#phone').val().trim(),
-            subject: $('#subject').val().trim(),
-            message: $('#message').val().trim(),
-            subscribe: $('#subscribe').is(':checked')
-        };
 
-        // Validate form data
-        if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-            showFormMessage('Please fill in all required fields.', 'danger');
-            return false;
-        }
-
-        // Validate email
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(formData.email)) {
-            showFormMessage('Please enter a valid email address.', 'danger');
-            return false;
-        }
-
-        // If validation passes
-        showFormMessage('Thank you for your message! We will get back to you soon.', 'success');
-
-        // Clear form
-        this.reset();
-
-        // Optionally, you can send data to server via AJAX
-        // sendFormData(formData);
-    });
-
-    // ===================================
-    // Form Message Display
-    // ===================================
-
-    function showFormMessage(message, type) {
-        var alertClass = 'alert-' + type;
-        var messageDiv = $('#formMessage');
-
-        messageDiv
-            .removeClass('d-none alert-success alert-danger alert-warning')
-            .addClass('alert ' + alertClass)
-            .html(message)
-            .fadeIn();
-
-        // Auto-hide after 5 seconds
-        setTimeout(function () {
-            messageDiv.fadeOut(function () {
-                $(this).addClass('d-none');
-            });
-        }, 5000);
-    }
 
     // ===================================
     // Carousel Auto-play

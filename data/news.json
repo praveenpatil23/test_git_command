@@ -3,7 +3,7 @@
   "newsletters": [
     {
       "id": "schedule-dec-2025",
-      "title": "VILAY GYAN DHARMARTH SANSTHA - PROGRAMS FOR THE MONTH OF ",
+      "title": "Monthly Programs",
       "month": "December 2025",
       "date": "December 2025",
       "icon": "fa-calendar-alt",
@@ -45,7 +45,7 @@
     },
     {
       "id": "schedule-nov-2025",
-      "title": "VILAY GYAN DHARMARTH SANSTHA - PROGRAMS FOR THE MONTH OF ",
+      "title": "Monthly Programs",
       "month": "November 2025",
       "date": "November 2025",
       "icon": "fa-calendar-alt",
@@ -83,3 +83,6 @@
    
   ]
 }
+
+
+

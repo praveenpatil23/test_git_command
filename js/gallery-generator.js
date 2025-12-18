@@ -1,5 +1,7 @@
 // Gallery Generator - Loads gallery data from JSON and generates dynamic HTML
 
+// Gallery Generator - Loads gallery data from JSON and generates dynamic HTML
+
 async function loadMahaYagyaGallery() {
     try {
         // Fetch gallery data from JSON - try relative and absolute paths as fallback
@@ -35,42 +37,55 @@ async function loadMahaYagyaGallery() {
 
         // Generate and render gallery HTML
         const galleryHTML = generateGalleryHTML(data.gallery);
-        
-        // Insert into the gallery container
+
+        // Insert into the gallery container (EVENTS PAGE)
         const galleryContainer = document.getElementById('mahayagya-gallery-container');
         if (galleryContainer) {
             galleryContainer.innerHTML = galleryHTML;
         }
-        
+
+        // Insert into the activities gallery container (ACTIVITIES PAGE)
+        const activitiesContainer = document.getElementById('activities-gallery-container');
+        if (activitiesContainer) {
+            activitiesContainer.innerHTML = galleryHTML;
+        }
+
         // Re-initialize lightbox after gallery loads
         callInitializeLightboxSafely();
-        
+
     } catch (error) {
         console.error('Error loading gallery:', error);
-        const container = document.getElementById('mahayagya-gallery-container');
-        if (container) {
-            const msg = (error && error.message) ? error.message : 'Error loading gallery. Please try again later.';
-            let details = '';
-            if (error && error.attempts && Array.isArray(error.attempts)) {
-                details = '<ul style="margin-top:8px;">' + error.attempts.map(a => {
-                    if (a.error) return `<li>${escapeHTML(a.path)} - error: ${escapeHTML(a.error)}</li>`;
-                    return `<li>${escapeHTML(a.path)} - status: ${escapeHTML(String(a.status))}</li>`;
-                }).join('') + '</ul>';
+
+        const renderError = (containerId) => {
+            const container = document.getElementById(containerId);
+            if (container) {
+                const msg = (error && error.message) ? error.message : 'Error loading gallery. Please try again later.';
+                let details = '';
+                if (error && error.attempts && Array.isArray(error.attempts)) {
+                    details = '<ul style="margin-top:8px;">' + error.attempts.map(a => {
+                        if (a.error) return `<li>${escapeHTML(a.path)} - error: ${escapeHTML(a.error)}</li>`;
+                        return `<li>${escapeHTML(a.path)} - status: ${escapeHTML(String(a.status))}</li>`;
+                    }).join('') + '</ul>';
+                }
+                container.innerHTML = `<div class="alert alert-danger">${escapeHTML(msg)}${details}</div>`;
             }
-            container.innerHTML = `<div class="alert alert-danger">${escapeHTML(msg)}${details}</div>`;
-        }
+        };
+
+        renderError('mahayagya-gallery-container');
     }
 }
 
+
+
 function generateGalleryHTML(galleryItems) {
     let html = '<div class="row g-4">';
-    
+
     galleryItems.forEach((item, index) => {
         const carouselId = `carousel-${item.id}`;
         const hasMultipleMedia = item.media.length > 1;
-        
+
         let mediaHTML = '';
-        
+
         if (hasMultipleMedia) {
             // Generate carousel for items with multiple media
             mediaHTML = generateCarouselHTML(item, carouselId);
@@ -78,7 +93,7 @@ function generateGalleryHTML(galleryItems) {
             // Single media (image or video)
             mediaHTML = generateSingleMediaHTML(item.media[0]);
         }
-        
+
         // Create gallery card
         html += `
             <div class="col-md-6 col-lg-4">
@@ -94,7 +109,7 @@ function generateGalleryHTML(galleryItems) {
             </div>
         `;
     });
-    
+
     html += '</div>';
     return html;
 }
@@ -118,12 +133,12 @@ function generateCarouselHTML(item, carouselId) {
         <div id="${carouselId}" class="carousel slide" data-bs-interval="false">
             <div class="carousel-inner">
     `;
-    
+
     // Generate carousel items
     item.media.forEach((media, index) => {
         const activeClass = index === 0 ? 'active' : '';
         let mediaElement = '';
-        
+
         if (media.type === 'image') {
             mediaElement = `<img src="${media.src}" alt="Gallery Item ${index + 1}" class="card-img-top" style="height: 250px; object-fit: cover; border-radius: 8px 8px 0 0;">`;
         } else if (media.type === 'video') {
@@ -134,14 +149,14 @@ function generateCarouselHTML(item, carouselId) {
                 </video>
             `;
         }
-        
+
         html += `
                 <div class="carousel-item ${activeClass}">
                     ${mediaElement}
                 </div>
         `;
     });
-    
+
     html += `
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#${carouselId}" data-bs-slide="prev" style="width: 30px; height: 30px; top: 50%; transform: translateY(-50%); left: 5px;">
@@ -153,7 +168,7 @@ function generateCarouselHTML(item, carouselId) {
             <div style="position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem;">1 / ${item.media.length}</div>
         </div>
     `;
-    
+
     return html;
 }
 
@@ -201,38 +216,41 @@ function callInitializeLightboxSafely() {
 }
 
 // ============================================================================
-// LIGHTBOX FUNCTIONALITY - Manages full-screen image viewing with navigation
+// EVENT LIGHTBOX FUNCTIONALITY
 // ============================================================================
 
-let currentImageIndex = 0;
-let galleryImages = [];
+let currentEventImageIndex = 0;
+let eventGalleryImages = [];
 
 // Initialize lightbox: build image list and attach delegated handlers once
 function initializeLightbox() {
-    // Build the current gallery image list
-    galleryImages = Array.from(document.querySelectorAll('.gallery-card img')).map((img, index) => ({
+    // Build the current event gallery image list
+    eventGalleryImages = Array.from(document.querySelectorAll('.gallery-card img')).map((img, index) => ({
         src: img.src,
         title: (img.closest('.gallery-card') && img.closest('.gallery-card').querySelector('.card-title')) ? img.closest('.gallery-card').querySelector('.card-title').textContent.trim() : (img.alt || 'Image ' + (index + 1))
     }));
-    // Expose for other scripts (backwards compatibility)
-    try { window.galleryImages = galleryImages; } catch (e) {}
+
+    // Expose for debugging
+    try {
+        window.eventGalleryImages = eventGalleryImages;
+    } catch (e) { }
 
     // Guard: ensure we only bind delegated click handler once
     if (!initializeLightbox._bound) {
-        // Delegated click handler for gallery images
+        // Delegated click handler for GALLERY (Event) images
         document.body.addEventListener('click', function (e) {
             const t = e.target;
             if (t && t.matches && t.matches('.gallery-card img')) {
                 e.preventDefault();
-                // Rebuild galleryImages to ensure index matches current DOM
-                galleryImages = Array.from(document.querySelectorAll('.gallery-card img')).map((img, index) => ({ src: img.src, title: (img.closest('.gallery-card') && img.closest('.gallery-card').querySelector('.card-title')) ? img.closest('.gallery-card').querySelector('.card-title').textContent.trim() : (img.alt || 'Image ' + (index + 1)) }));
-                try { window.galleryImages = galleryImages; } catch (e) {}
+
+                // Re-sync event images just in case
+                eventGalleryImages = Array.from(document.querySelectorAll('.gallery-card img')).map((img, index) => ({ src: img.src, title: (img.closest('.gallery-card') && img.closest('.gallery-card').querySelector('.card-title')) ? img.closest('.gallery-card').querySelector('.card-title').textContent.trim() : (img.alt || 'Image ' + (index + 1)) }));
+                window.eventGalleryImages = eventGalleryImages;
+
                 const imgs = Array.from(document.querySelectorAll('.gallery-card img'));
-                currentImageIndex = imgs.indexOf(t);
-                try { window.currentImageIndex = currentImageIndex; } catch (e) {}
-                if (typeof openLightbox === 'function') {
-                    openLightbox(galleryImages[currentImageIndex] || { src: t.src, title: t.alt });
-                }
+                currentEventImageIndex = imgs.indexOf(t);
+
+                openEventLightbox(eventGalleryImages[currentEventImageIndex] || { src: t.src, title: t.alt });
             }
         });
 
@@ -240,7 +258,7 @@ function initializeLightbox() {
         const overlay = document.getElementById('lightbox-overlay');
         if (overlay) {
             overlay.addEventListener('click', function (e) {
-                if (e.target === this) closeLightbox();
+                if (e.target === this) closeEventLightbox();
             });
         }
 
@@ -248,17 +266,17 @@ function initializeLightbox() {
         const closeBtn = document.getElementById('lightbox-close');
         const prevBtn = document.getElementById('lightbox-prev');
         const nextBtn = document.getElementById('lightbox-next');
-        if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-        if (prevBtn) prevBtn.addEventListener('click', showPrevImage);
-        if (nextBtn) nextBtn.addEventListener('click', showNextImage);
+        if (closeBtn) closeBtn.addEventListener('click', closeEventLightbox);
+        if (prevBtn) prevBtn.addEventListener('click', showPrevEventImage);
+        if (nextBtn) nextBtn.addEventListener('click', showNextEventImage);
 
-        // Keyboard navigation
+        // Keyboard navigation - Check if THIS lightbox is active
         document.addEventListener('keydown', function (e) {
             const overlayEl = document.getElementById('lightbox-overlay');
             if (overlayEl && overlayEl.classList.contains('active')) {
-                if (e.key === 'ArrowLeft') showPrevImage();
-                if (e.key === 'ArrowRight') showNextImage();
-                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showPrevEventImage();
+                if (e.key === 'ArrowRight') showNextEventImage();
+                if (e.key === 'Escape') closeEventLightbox();
             }
         });
 
@@ -266,54 +284,61 @@ function initializeLightbox() {
     }
 }
 
-function openLightbox(image) {
+function openEventLightbox(image) {
     if (!image || !image.src) return;
     const imgEl = document.getElementById('lightbox-image');
     const titleEl = document.getElementById('lightbox-title');
     const overlay = document.getElementById('lightbox-overlay');
+
     if (imgEl && titleEl && overlay) {
         imgEl.src = image.src;
         titleEl.textContent = image.title || '';
-        updateCounter();
+        updateEventCounter();
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
-        try { window.currentImageIndex = currentImageIndex; } catch (e) {}
-        try { window.galleryImages = galleryImages; } catch (e) {}
     }
 }
 
-function closeLightbox() {
+// Global alias if needed by other scripts, but strictly for events now
+window.openLightbox = openEventLightbox;
+
+function closeEventLightbox() {
     const overlay = document.getElementById('lightbox-overlay');
     if (overlay) overlay.classList.remove('active');
     document.body.style.overflow = 'auto';
 }
 
-function showNextImage() {
-    if (!galleryImages || galleryImages.length === 0) return;
-    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-    try { window.currentImageIndex = currentImageIndex; } catch (e) {}
-    openLightbox(galleryImages[currentImageIndex]);
+function showNextEventImage() {
+    if (!eventGalleryImages || eventGalleryImages.length === 0) return;
+    currentEventImageIndex = (currentEventImageIndex + 1) % eventGalleryImages.length;
+    openEventLightbox(eventGalleryImages[currentEventImageIndex]);
 }
 
-function showPrevImage() {
-    if (!galleryImages || galleryImages.length === 0) return;
-    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-    try { window.currentImageIndex = currentImageIndex; } catch (e) {}
-    openLightbox(galleryImages[currentImageIndex]);
+function showPrevEventImage() {
+    if (!eventGalleryImages || eventGalleryImages.length === 0) return;
+    currentEventImageIndex = (currentEventImageIndex - 1 + eventGalleryImages.length) % eventGalleryImages.length;
+    openEventLightbox(eventGalleryImages[currentEventImageIndex]);
 }
 
-function updateCounter() {
+function updateEventCounter() {
     const counterEl = document.getElementById('lightbox-counter');
     if (!counterEl) return;
-    const total = (galleryImages && galleryImages.length) ? galleryImages.length : 1;
-    const current = (typeof currentImageIndex === 'number') ? (currentImageIndex + 1) : 1;
-    counterEl.textContent = `${current} / ${total}`;
+
+    const total = (eventGalleryImages && eventGalleryImages.length) ? eventGalleryImages.length : 1;
+    const current = (typeof currentEventImageIndex === 'number') ? (currentEventImageIndex + 1) : 1;
+
+    if (total > 0) {
+        counterEl.textContent = `${current} / ${total}`;
+        counterEl.style.display = 'block';
+    } else {
+        counterEl.style.display = 'none';
+    }
 }
 
 // Initialize when page loads and when Activities page is opened
 document.addEventListener('DOMContentLoaded', initializeLightbox);
 
-// Reinitialize lightbox when navigating to activities page (safe call)
+// Reinitialize lightbox when navigating (safe call)
 const originalNavigateTo = typeof navigateTo !== 'undefined' ? navigateTo : null;
 if (originalNavigateTo) {
     window.navigateTo = function (page) {

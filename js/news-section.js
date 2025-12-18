@@ -8,16 +8,16 @@ async function loadNewsSection() {
             throw new Error('Failed to load news data: ' + response.statusText);
         }
         const data = await response.json();
-        
+
         // Generate and render news HTML
         const newsHTML = generateNewsHTML(data);
-        
+
         // Insert into the news container
         const newsContainer = document.getElementById('news-container');
         if (newsContainer) {
             newsContainer.innerHTML = newsHTML;
         }
-        
+
     } catch (error) {
         console.error('Error loading news:', error);
         const container = document.getElementById('news-container');
@@ -29,31 +29,42 @@ async function loadNewsSection() {
 
 function generateNewsHTML(data) {
     let html = '';
-    
+
     // Generate newsletter cards and program tables
     if (data.newsletters && Array.isArray(data.newsletters)) {
         html += '<section class="news-section">';
-        data.newsletters.forEach((newsletter) => {
+        data.newsletters.forEach((newsletter, index) => {
             const bgColorClass = `bg-${newsletter.color}`;
-            
+            const collapseId = `news-collapse-${index}`;
+
             // Newsletter card header
+            const isFirst = index === 0;
             html += `
                 <article class="news-item mb-4">
                     <div class="card h-100">
-                        <div class="card-header ${bgColorClass} ${newsletter.color === 'warning' || newsletter.color === 'info' ? 'text-dark' : 'text-white'}">
+                        <div class="card-header ${bgColorClass} ${newsletter.color === 'warning' || newsletter.color === 'info' ? 'text-dark' : 'text-white'}" 
+                             data-bs-toggle="collapse" 
+                             data-bs-target="#${collapseId}" 
+                             aria-expanded="${isFirst ? 'true' : 'false'}" 
+                             aria-controls="${collapseId}"
+                             style="cursor: pointer;">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h4 class="card-title mb-0">
                                     <i class="fas ${newsletter.icon}"></i> ${escapeHTML(newsletter.title)}
                                 </h4>
-                                <small class="badge ${newsletter.color === 'warning' || newsletter.color === 'info' ? 'bg-light text-dark' : 'bg-light text-dark'}">${escapeHTML(newsletter.date)}</small>
+                                <div>
+                                    <small class="badge ${newsletter.color === 'warning' || newsletter.color === 'info' ? 'bg-light text-dark' : 'bg-light text-dark'} me-2">${escapeHTML(newsletter.date)}</small>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <p class="card-text">
-                                ${escapeHTML(newsletter.content)}
-                            </p>
+                        <div id="${collapseId}" class="collapse ${isFirst ? 'show' : ''}">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    ${escapeHTML(newsletter.content)}
+                                </p>
             `;
-            
+
             // If newsletter has events (programs), render them as a table
             if (newsletter.events && Array.isArray(newsletter.events) && newsletter.events.length > 0) {
                 html += `
@@ -73,7 +84,7 @@ function generateNewsHTML(data) {
                                     </thead>
                                     <tbody>
                 `;
-                
+
                 newsletter.events.forEach((event) => {
                     html += `
                                         <tr>
@@ -83,15 +94,16 @@ function generateNewsHTML(data) {
                                         </tr>
                     `;
                 });
-                
+
                 html += `
                                     </tbody>
                                 </table>
                             </div>
                 `;
             }
-            
+
             html += `
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -99,7 +111,7 @@ function generateNewsHTML(data) {
         });
         html += '</section>';
     }
-    
+
     // Add location info
     html += `
         <section class="location-info mt-5 p-5 rounded text-center" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
@@ -111,7 +123,7 @@ function generateNewsHTML(data) {
             <p class="mb-0" style="font-size: 1rem;">Hanuman Mandir Road, Bareilly, India</p>
         </section>
     `;
-    
+
     return html;
 }
 
@@ -134,7 +146,7 @@ document.addEventListener('DOMContentLoaded', loadNewsSection);
 // Re-load news when navigating to news page
 const originalNavigateToNews = typeof navigateTo !== 'undefined' ? navigateTo : null;
 if (originalNavigateToNews) {
-    window.navigateTo = function(page) {
+    window.navigateTo = function (page) {
         originalNavigateToNews(page);
         if (page === 'news') {
             setTimeout(loadNewsSection, 100);
